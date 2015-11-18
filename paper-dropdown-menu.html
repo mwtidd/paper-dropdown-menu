@@ -417,7 +417,7 @@ respectively.
           selectedItems.forEach(function(selectedItem){
             value += selectedItem.label || selectedItem.textContent.trim();
 
-            if(selectedItems.length > 2 && selectedItems.indexOf(selectedItem) < selectedItems.length - 1 ){
+            if(selectedItems.indexOf(selectedItem) < selectedItems.length - 1 ){
               value += ", ";
             }
 
