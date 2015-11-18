@@ -23,6 +23,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../../iron-icon/iron-icon.html">
   <link rel="import" href="../../paper-listbox/paper-listbox.html">
   <link rel="import" href="../../paper-item/paper-item.html">
+  <link rel="import" href="../../paper-item/paper-checkbox-item.html">
+  <link rel="import" href="../../paper-item/paper-radio-item.html">
   <link rel="import" href="../../paper-button/paper-button.html">
   <link rel="import" href="../../paper-styles/demo-pages.html">
   <link rel="import" href="../../paper-tabs/paper-tabs.html">
@@ -56,12 +58,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="horizontal-section-container">
       <div>
-        <h4>Basic Menu</h4>
+        <h4>Single Selection Menu</h4>
         <div class="horizontal-section">
           <paper-dropdown-menu label="Dinosaurs" ignore-select>
-            <paper-listbox class="dropdown-content" multi>
+            <paper-listbox class="dropdown-content" selected-attribute="active" allow-deselect>
               <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
-                <paper-item>[[dinosaur]]</paper-item>
+                <paper-radio-item>[[dinosaur]]</paper-radio-item>
+              </template>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+      </div>
+    </div>
+
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Multi Selection Menu</h4>
+        <div class="horizontal-section">
+          <paper-dropdown-menu label="Dinosaurs" ignore-select>
+            <paper-listbox class="dropdown-content" selected-attribute="active" multi>
+              <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                <paper-checkbox-item>[[dinosaur]]</paper-checkbox-item>
               </template>
             </paper-listbox>
           </paper-dropdown-menu>
