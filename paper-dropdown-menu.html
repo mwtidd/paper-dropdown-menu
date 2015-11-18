@@ -149,6 +149,7 @@ respectively.
       no-animations="[[noAnimations]]"
       on-iron-select="_onIronSelect"
       on-iron-deselect="_onIronDeselect"
+      ignore-select="{{ignoreSelect}}",
       opened="{{opened}}">
       <div class="dropdown-trigger">
         <paper-ripple></paper-ripple>
@@ -253,6 +254,15 @@ respectively.
          */
         placeholder: {
           type: String
+        },
+
+        /**
+         * Set to true to disable automatically closing the dropdown after
+         * a selection has been made.
+         */
+        ignoreSelect: {
+          type: Boolean,
+          value: false
         },
 
         /**
