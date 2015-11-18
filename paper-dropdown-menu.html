@@ -222,6 +222,15 @@ respectively.
         },
 
         /**
+         * Returns an array of currently selected items.
+         */
+        selectedItems: {
+          type: Array,
+          readOnly: true,
+          notify: true
+        },
+
+        /**
          * The value for this element that will be used when submitting in
          * a form. It is read only, and will always have the same value
          * as `selectedItemLabel`.
@@ -301,7 +310,8 @@ respectively.
       },
 
       observers: [
-        '_selectedItemChanged(selectedItem)'
+        '_selectedItemChanged(selectedItem)',
+        '_selectedItemsChanged(selectedItems)'
       ],
 
       attached: function() {
@@ -342,7 +352,12 @@ respectively.
        * @param {CustomEvent} event An `iron-select` event.
        */
       _onIronSelect: function(event) {
-        this._setSelectedItem(event.detail.item);
+        var contentElement = this.contentElement;
+        if(contentElement.multi){
+          this._setSelectedItems(contentElement.selectedItems);
+        }else{
+          this._setSelectedItem(event.detail.item);
+        }
       },
 
       /**
@@ -351,7 +366,12 @@ respectively.
        * @param {CustomEvent} event An `iron-deselect` event.
        */
       _onIronDeselect: function(event) {
-        this._setSelectedItem(null);
+        var contentElement = this.contentElement;
+        if(contentElement.multi){
+          this._setSelectedItems(contentElement.selectedItems);
+        }else{
+          this._setSelectedItem(null);
+        }
       },
 
       /**
@@ -380,6 +400,31 @@ respectively.
         }
 
         this._setValue(value);
+        this._setSelectedItemLabel(value);
+      },
+
+      /**
+       * Compute the label for the dropdown given a selected item.
+       *
+       * @param {Element} selectedItem A selected Element item, with an
+       * optional `label` property.
+       */
+      _selectedItemsChanged: function(selectedItems) {
+        var value = '';
+        if (!selectedItems || selectedItems.length == 0) {
+          value = '';
+        } else {
+          selectedItems.forEach(function(selectedItem){
+            value += selectedItem.label || selectedItem.textContent.trim();
+
+            if(selectedItems.length > 2 && selectedItems.indexOf(selectedItem) < selectedItems.length - 1 ){
+              value += ", ";
+            }
+
+          });
+        }
+
+        this._setValue(null);
         this._setSelectedItemLabel(value);
       },
 
