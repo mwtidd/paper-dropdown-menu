@@ -73,6 +73,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="horizontal-section-container">
       <div>
+        <h4>Single Selection Menu</h4>
+        <div class="horizontal-section">
+          <paper-dropdown-menu label="Dinosaurs" ignore-select>
+            <paper-listbox class="dropdown-content" selected-attribute="active" allow-deselect>
+              <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                <paper-radio-item>[[dinosaur]]</paper-radio-item>
+              </template>
+            </paper-listbox>
+          </paper-dropdown-menu>
+        </div>
+      </div>
+    </div>
+
+    <div class="horizontal-section-container">
+      <div>
         <h4>Multi Selection Menu</h4>
         <div class="horizontal-section">
           <paper-dropdown-menu label="Dinosaurs" ignore-select>
