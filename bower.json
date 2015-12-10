@@ -26,7 +26,7 @@
     "iron-icon": "polymerelements/iron-icon#^1.0.0",
     "iron-icons": "polymerelements/iron-icons#^1.0.0",
     "paper-input": "polymerelements/paper-input#^1.0.9",
-    "paper-menu-button": "polymerelements/paper-menu-button#^1.0.0",
+    "paper-menu-button": "mwtidd/paper-menu-button#customizations",
     "paper-ripple": "polymerelements/paper-ripple#^1.0.0",
     "paper-styles": "polymerelements/paper-styles#^1.0.0",
     "iron-menu-behavior": "PolymerElements/iron-menu-behavior#1.0.6",
