@@ -30,6 +30,7 @@
     "paper-ripple": "polymerelements/paper-ripple#^1.0.0",
     "paper-styles": "polymerelements/paper-styles#^1.0.0",
     "iron-menu-behavior": "PolymerElements/iron-menu-behavior#1.0.6",
+    "iron-overlay-behavior": "PolymerElements/iron-overlay-behavior#1.1.1",
     "iron-form-element-behavior": "PolymerElements/iron-form-element-behavior#^1.0.0",
     "iron-validatable-behavior": "PolymerElements/iron-validatable-behavior#^1.0.0",
     "iron-selector": "mwtidd/iron-selector#customizations"
